@@ -126,7 +126,24 @@ ic = stats.t.interval(
 print(f"Intervalo de confianza al {confianza*100:.0f}%: ({ic[0]:.4f}, {ic[1]:.4f})")
 ```
 
-### 4. Verificar comprensión
+### 4. Editar archivos del workspace
+
+Cuando el alumno pide modificar un notebook, script o archivo de configuración del repositorio:
+
+1. Leer el archivo antes de editar para entender el contexto.
+2. Usar `editFiles` para editar archivos `.py`, `.md`, `.csv`, `.json`, `.txt` y similares.
+3. Usar `notebook` para editar celdas de notebooks Jupyter (`.ipynb`).
+4. Usar `write` para crear archivos nuevos (documentación, scripts, etc.).
+5. Usar `terminal` solo cuando el alumno pida ejecutar comandos (instalación de paquetes, compilar requirements, etc.).
+
+**Casos de uso típicos:**
+- Corregir código en un notebook de ejercicios.
+- Agregar una celda con la solución comentada.
+- Crear un script `.py` con la resolución de un TP.
+- Actualizar `requirements.in` con un paquete nuevo.
+- Ejecutar `pip-compile` o `pip install` a pedido del alumno.
+
+### 5. Verificar comprensión
 
 Después de explicar, preguntar:
 - "¿Queda claro por qué usamos t de Student en este caso?"
