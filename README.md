@@ -92,23 +92,49 @@ sesiones/u1/clase2/U1-Inferencia vs Bootstrapping.html
 
 ### Ejecutar los notebooks localmente
 
-1. Cloná el repositorio:
-   ```bash
-   git clone <url-del-repo>
-   cd metodos-tgad-fce
-   ```
+#### Requisitos
 
-2. Creá un entorno virtual e instalá las dependencias:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   pip install numpy pandas scipy statsmodels matplotlib ucimlrepo jupyter
-   ```
+- **Python** 3.12 recomendado
+- **pip-tools** para gestionar dependencias
 
-3. Iniciá Jupyter:
-   ```bash
-   jupyter notebook
-   ```
+#### Instalación del entorno
+
+```bash
+python -m venv .venv
+source .venv/Scripts/activate        # Windows CMD/PowerShell: .venv\Scripts\activate
+pip install pip-tools
+pip-compile
+pip install -r requirements.txt
+```
+
+**Explicación de cada paso:**
+
+1. `python -m venv .venv` — Crea un entorno virtual aislado en `.venv`
+2. `source .venv/Scripts/activate` — Activa el entorno
+3. `pip install pip-tools` — Instala la herramienta de gestión de dependencias
+4. `pip-compile` — Compila `requirements.in` a `requirements.txt` resolviendo todas las dependencias
+5. `pip install -r requirements.txt` — Instala todas las dependencias pinned
+
+#### Gestión de dependencias con pip-tools
+
+- **`requirements.in`** — Dependencias directas del proyecto (fuente)
+- **`requirements.txt`** — Generado automáticamente con todas las dependencias y versiones pinned
+
+Para agregar una nueva dependencia:
+
+```bash
+echo "nombre_paquete" >> requirements.in
+python -m piptools compile
+pip install -r requirements.txt
+```
+
+⚠️ **NO editar manualmente `requirements.txt`** — siempre modificar `requirements.in` y recompilar.
+
+#### Iniciar Jupyter
+
+```bash
+jupyter notebook
+```
 
 ---
 
