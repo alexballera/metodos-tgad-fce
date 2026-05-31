@@ -8,3 +8,4 @@ seaborn
 statsmodels
 ucimlrepo
 scikit-optimize
+imblearn
